@@ -95,5 +95,25 @@ public class MainController {
         return "response" + name;
     }
 
+    @PostMapping("/post/practice")
+    @ResponseBody
+    public String postResponse3(@RequestParam(value="username",required = false) String username,
+                                @RequestParam(value="gender",required = false) String gender,
+                                @RequestParam(value="birthYear",required = false) Integer birthYear,
+                                @RequestParam(value="birthMonth",required = false) Integer birthMonth,
+                                @RequestParam(value="birthDay",required = false) Integer birthDay,
+                                @RequestParam(value="hobby",required = false) String hobby,
+                                Model model){
+
+        model.addAttribute("username",username);
+        model.addAttribute("gender",gender);
+        model.addAttribute("birthYear",birthYear);
+        model.addAttribute("birthMonth",birthMonth);
+        model.addAttribute("birthDay",birthDay);
+        model.addAttribute("hobby",hobby);
+        return "이름 : " + username  + "성별 : " + gender  + "생년월일 : " + birthYear + "-" + birthMonth + "-" +
+                birthDay  + "관심사 : " + hobby;
+    }
+
 
 }
